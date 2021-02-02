@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using HellowWorld.Services.CharecterServices;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,6 +33,7 @@ namespace HellowWorld
             services.AddScoped<ICharecterServices,CharecterServices>(); // this will done by manually -> to tell compailer this is services
             //services.AddTransient -> which make service usable for all controller
             //services.AddSingleton -> which make service to be used only once
+            services.AddAutoMapper(typeof(Startup)); // configure AutoMapper to the project
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "HellowWorld", Version = "v1" });

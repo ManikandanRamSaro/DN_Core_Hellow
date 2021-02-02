@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HellowWorld.Dtos.Charecter;
 using HellowWorld.Models;
 using HellowWorld.Services.CharecterServices;
 using Microsoft.AspNetCore.Mvc;
@@ -34,7 +35,7 @@ namespace HellowWorld.Controllers
         }
 
         [HttpPost("AddCharecter")]
-        public  async Task<IActionResult> AddCharecter(Charecter chars){
+        public  async Task<IActionResult> AddCharecter(AddCharecterDto chars){
             
             return Ok(await _charecterService.addNewCharecter(chars));
         }
