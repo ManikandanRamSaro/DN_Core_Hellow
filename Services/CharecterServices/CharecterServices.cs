@@ -11,24 +11,24 @@ namespace HellowWorld.Services.CharecterServices
             new Charecter{ Id=1,Name="Sai" },
             new Charecter { Id=2,Name="Shree"}
         };
-        public async Task<ServiceResponse<List<Charecter>>> addNewCharecter(Charecter objOfClass)
+        public async Task<ServiceResponse<List<GetCharecterDto>>> addNewCharecter(Charecter objOfClass)
         {
              knights.Add(objOfClass);
-             ServiceResponse<List<Charecter>> serviceResponse = new ServiceResponse<List<Charecter>>();
+             ServiceResponse<List<GetCharecterDto>> serviceResponse = new ServiceResponse<List<GetCharecterDto>>();
              serviceResponse.data=knights;             
              return serviceResponse;
         }
 
-        public async Task<ServiceResponse<List<Charecter>>> GetListOfChars()
+        public async Task<ServiceResponse<List<GetCharecterDto>>> GetListOfChars()
         {
-             ServiceResponse<List<Charecter>> serviceResponse = new ServiceResponse<List<Charecter>>();
+             ServiceResponse<List<GetCharecterDto>> serviceResponse = new ServiceResponse<List<GetCharecterDto>>();
              serviceResponse.data=knights;
              return serviceResponse;
         }
 
-        public async Task<ServiceResponse<Charecter>> getNamebyID(int id)
+        public async Task<ServiceResponse<GetCharecterDto>> getNamebyID(int id)
         {
-             ServiceResponse<Charecter> serviceResponse = new ServiceResponse<Charecter>();
+             ServiceResponse<GetCharecterDto> serviceResponse = new ServiceResponse<GetCharecterDto>();
              serviceResponse.data=knights.FirstOrDefault(x =>x.Id==id);
              return serviceResponse;
         }
