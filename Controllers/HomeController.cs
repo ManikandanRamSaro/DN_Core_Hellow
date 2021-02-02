@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using HellowWorld.Models;
 using HellowWorld.Services.CharecterServices;
 using Microsoft.AspNetCore.Mvc;
@@ -21,21 +22,21 @@ namespace HellowWorld.Controllers
             _charecterService = charecterService;
         }
         [HttpGet("GetAll")]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            return Ok(_charecterService.GetListOfChars());
+            return Ok(await _charecterService.GetListOfChars());
         }
  
         [HttpGet("{id}")]
-        public IActionResult GetSingle(int id)
+        public async Task<IActionResult> GetSingle(int id)
         {
-            return Ok(_charecterService.getNamebyID(id));  // filter data from the list -> linq
+            return Ok(await _charecterService.getNamebyID(id));  // filter data from the list -> linq
         }
 
         [HttpPost("AddCharecter")]
-        public IActionResult AddCharecter(Charecter chars){
+        public  async Task<IActionResult> AddCharecter(Charecter chars){
             
-            return Ok(_charecterService.addNewCharecter(chars));
+            return Ok(await _charecterService.addNewCharecter(chars));
         }
     }
 }
