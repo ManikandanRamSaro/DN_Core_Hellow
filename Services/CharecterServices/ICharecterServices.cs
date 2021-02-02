@@ -5,11 +5,11 @@ namespace HellowWorld.Services.CharecterServices
 {
     public interface ICharecterServices
     {
-         Task<List<Charecter>> GetListOfChars();
+         Task<ServiceResponse<List<Charecter>>> GetListOfChars();
 
-         Task<Charecter> getNamebyID(int id);
+         Task<ServiceResponse<Charecter>> getNamebyID(int id);
 
-         Task<List<Charecter>> addNewCharecter(Charecter obj);
+         Task<ServiceResponse<List<Charecter>>> addNewCharecter(Charecter obj);
 
          //Task<> is multi thread object
     }
