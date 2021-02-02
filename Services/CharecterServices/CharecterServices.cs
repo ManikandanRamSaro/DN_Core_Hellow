@@ -20,9 +20,13 @@ namespace HellowWorld.Services.CharecterServices
          }
 
         public async Task<ServiceResponse<List<GetCharecterDto>>> addNewCharecter(AddCharecterDto objOfClass)
-        {
-             knights.Add(_mapper.Map<Charecter>(objOfClass));
+        {             
              ServiceResponse<List<GetCharecterDto>> serviceResponse = new ServiceResponse<List<GetCharecterDto>>();
+             
+             Charecter chars= _mapper.Map<Charecter>(objOfClass);
+             chars.Id=knights.Max(ob=>ob.Id)+1;  // getting max id and incrementing it using LINQ
+             knights.Add(chars);
+
              serviceResponse.data=(knights.Select(ob=>_mapper.Map<GetCharecterDto>(ob))).ToList();   // this select all data and convert to dto object and make it List          
              return serviceResponse;
         }
