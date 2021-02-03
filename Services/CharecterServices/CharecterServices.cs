@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -31,6 +32,26 @@ namespace HellowWorld.Services.CharecterServices
              return serviceResponse;
         }
 
+        public async Task<ServiceResponse<List<GetCharecterDto>>> deleteCharecter(int id)
+        {
+           ServiceResponse<List<GetCharecterDto>> serviceResponse = new ServiceResponse<List<GetCharecterDto>>();
+            try 
+            {
+
+            
+            Charecter chars= knights.First(da=>da.Id==id); 
+            knights.Remove(chars);
+
+            serviceResponse.data=(knights.Select(ob=>_mapper.Map<GetCharecterDto>(ob))).ToList();
+            }
+            catch(Exception ex)
+            {
+                serviceResponse.Success=false;
+                serviceResponse.Message=ex.Message; 
+            }
+            return serviceResponse;
+        }
+
         public async Task<ServiceResponse<List<GetCharecterDto>>> GetListOfChars()
         {
              ServiceResponse<List<GetCharecterDto>> serviceResponse = new ServiceResponse<List<GetCharecterDto>>();
@@ -42,7 +63,32 @@ namespace HellowWorld.Services.CharecterServices
         {
              ServiceResponse<GetCharecterDto> serviceResponse = new ServiceResponse<GetCharecterDto>();
              serviceResponse.data = _mapper.Map<GetCharecterDto>(knights.FirstOrDefault(x=>x.Id==id)); 
-             return serviceResponse;
+             return serviceResponse;        
         }
+        public async Task<ServiceResponse<GetCharecterDto>> updateCharecter(UpdateCharecterDto obj)
+        {
+            ServiceResponse<GetCharecterDto> serviceResponse = new ServiceResponse<GetCharecterDto>();
+            try 
+            {
+
+            
+            Charecter chars= knights.FirstOrDefault(da=>da.Id==obj.Id);
+            chars.Name=obj.Name;
+            chars.Intelligence=obj.Intelligence;
+            chars.Class=obj.Class;
+            chars.Defence=obj.Defence;
+            chars.HitPoints=obj.HitPoints;
+            chars.Strength=obj.Strength; 
+
+            serviceResponse.data=_mapper.Map<GetCharecterDto>(chars);
+            }
+            catch(Exception ex)
+            {
+                serviceResponse.Success=false;
+                serviceResponse.Message=ex.Message; 
+            }
+            return serviceResponse;
+        }   
+         
     }
 }

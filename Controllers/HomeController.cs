@@ -39,5 +39,22 @@ namespace HellowWorld.Controllers
             
             return Ok(await _charecterService.addNewCharecter(chars));
         }
+
+        [HttpPut("updateCharecter")]
+        public  async Task<IActionResult> updateCharecter(UpdateCharecterDto chars){
+            
+            return Ok(await _charecterService.updateCharecter(chars));
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> deleteRecord(int id)
+        {
+            ServiceResponse<List<GetCharecterDto>> response=await _charecterService.deleteCharecter(id);
+            if(response.data==null)
+            {
+                return NotFound(response);
+            }
+            return Ok(response);  // filter data from the list -> linq
+        }
     }
 }
