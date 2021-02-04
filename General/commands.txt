@@ -1,6 +1,14 @@
 dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer
-add package Microsoft.EntityFrameworkCore.Design
-
 
 dotnet tool install --global dotnet-ef // tool for entity framework
+
+add package Microsoft.EntityFrameworkCore.Design
+
+--- after setup entity framework and appsettings connection config and Startup cs setup completed
+
+dotnet ef migrations add InitialCreate  --> table structure in CS file - step 1
+
+dotnet ef database update  --> create db and tables in sql server after creating migrations part
+
+-- this command is used db migrations to application
