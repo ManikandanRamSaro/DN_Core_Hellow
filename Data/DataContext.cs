@@ -8,5 +8,7 @@ namespace HellowWorld.Data
         public DataContext(DbContextOptions<DataContext> options) : base(options)  { }
  
         public DbSet<Charecter> charecters { get; set; }
+
+        public DbSet<User> Users { get; set; }
     }
 }
