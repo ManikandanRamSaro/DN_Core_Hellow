@@ -32,9 +32,12 @@ namespace HellowWorld
         {
             services.AddDbContext<DataContext>(x=>x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))); //setup connection string
             services.AddControllers();
+
             services.AddScoped<ICharecterServices,CharecterServices>(); // this will done by manually -> to tell compailer this is services
+            services.AddScoped<IAuthRepository,AuthRepository>();
             //services.AddTransient -> which make service usable for all controller
             //services.AddSingleton -> which make service to be used only once
+            
             services.AddAutoMapper(typeof(Startup)); // configure AutoMapper to the project
             services.AddSwaggerGen(c =>
             {
