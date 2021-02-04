@@ -1,0 +1,6 @@
+dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+add package Microsoft.EntityFrameworkCore.Design
+
+
+dotnet tool install --global dotnet-ef // tool for entity framework
