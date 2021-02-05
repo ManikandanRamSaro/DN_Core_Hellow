@@ -14,5 +14,6 @@ namespace HellowWorld.Models
         public RpgClass Class {get;set;}= RpgClass.Knight; 
 
         public User Users {get;set;}
+        public Weapon Weapons { get; set; }
     }
 }

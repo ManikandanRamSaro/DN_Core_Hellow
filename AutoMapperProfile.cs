@@ -1,5 +1,6 @@
 using AutoMapper;
 using HellowWorld.Dtos.Charecter;
+using HellowWorld.Dtos.Weapon;
 using HellowWorld.Models;
 
 namespace HellowWorld
@@ -10,6 +11,7 @@ namespace HellowWorld
         {
             CreateMap<Charecter,GetCharecterDto>();  // here we configure source and destionation of Class mapping
             CreateMap<AddCharecterDto,Charecter>();
+            CreateMap<Weapon,GetWeaponDto>();
         }
     }
 }

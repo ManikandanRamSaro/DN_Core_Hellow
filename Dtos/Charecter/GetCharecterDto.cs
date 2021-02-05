@@ -1,3 +1,4 @@
+using HellowWorld.Dtos.Weapon;
 using HellowWorld.Models;
 
 namespace HellowWorld.Dtos.Charecter
@@ -13,5 +14,6 @@ namespace HellowWorld.Dtos.Charecter
         public int Intelligence { get; set; } =10;
 
         public RpgClass Class {get;set;}= RpgClass.Knight; 
+        public GetWeaponDto Weapons { get; set; }
     }
 }
