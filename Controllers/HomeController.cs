@@ -29,8 +29,7 @@ namespace HellowWorld.Controllers
         [HttpGet("GetAll")]
         public async Task<IActionResult> Get()
         {
-            int id = int.Parse(User.Claims.FirstOrDefault(x=>x.Type==ClaimTypes.NameIdentifier).Value);  
-            return Ok(await _charecterService.GetListOfChars(id));
+             return Ok(await _charecterService.GetListOfChars());
         }
  
         [HttpGet("{id}")]
