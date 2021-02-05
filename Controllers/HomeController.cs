@@ -1,13 +1,16 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using HellowWorld.Dtos.Charecter;
 using HellowWorld.Models;
 using HellowWorld.Services.CharecterServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HellowWorld.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
 
@@ -22,10 +25,12 @@ namespace HellowWorld.Controllers
        {
             _charecterService = charecterService;
         }
+        [AllowAnonymous]
         [HttpGet("GetAll")]
         public async Task<IActionResult> Get()
         {
-            return Ok(await _charecterService.GetListOfChars());
+            int id = int.Parse(User.Claims.FirstOrDefault(x=>x.Type==ClaimTypes.NameIdentifier).Value);  
+            return Ok(await _charecterService.GetListOfChars(id));
         }
  
         [HttpGet("{id}")]

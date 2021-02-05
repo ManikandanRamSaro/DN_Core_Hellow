@@ -57,10 +57,10 @@ namespace HellowWorld.Services.CharecterServices
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<List<GetCharecterDto>>> GetListOfChars()
+        public async Task<ServiceResponse<List<GetCharecterDto>>> GetListOfChars(int userID)
         {
             ServiceResponse<List<GetCharecterDto>> serviceResponse = new ServiceResponse<List<GetCharecterDto>>();
-            List<Charecter> charlist = await _contect.charecters.ToListAsync(); // getting data from database
+            List<Charecter> charlist = await _contect.charecters.Where(ob=>ob.Users.Id==userID).ToListAsync(); // getting data from database
             serviceResponse.data = (charlist.Select(ob => _mapper.Map<GetCharecterDto>(ob))).ToList();
             return serviceResponse;
         }
