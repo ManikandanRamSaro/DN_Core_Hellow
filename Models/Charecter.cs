@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace HellowWorld.Models
 {
     public class Charecter
@@ -15,5 +17,6 @@ namespace HellowWorld.Models
 
         public User Users {get;set;}
         public Weapon Weapons { get; set; }
+        public List<CharecterSkill> CharecterSkills { get; set; }
     }
 }
