@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using HellowWorld.Dtos.Skill;
 using HellowWorld.Dtos.Weapon;
 using HellowWorld.Models;
 
@@ -15,5 +17,6 @@ namespace HellowWorld.Dtos.Charecter
 
         public RpgClass Class {get;set;}= RpgClass.Knight; 
         public GetWeaponDto Weapons { get; set; }
+        public List<GetSkillDto> Skills { get; set; }
     }
 }
