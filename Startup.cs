@@ -7,6 +7,7 @@ using AutoMapper;
 using HellowWorld.Data;
 using HellowWorld.Services.CharecterServices;
 using HellowWorld.Services.CharecterSkillService;
+using HellowWorld.Services.FightService;
 using HellowWorld.Services.WeaponServices;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -43,6 +44,7 @@ namespace HellowWorld
             services.AddScoped<IAuthRepository,AuthRepository>();
             services.AddScoped<IWeaponServices,WeaponServices>();
             services.AddScoped<ICharecterSkillService,CharecterSkillService>();
+            services.AddScoped<IFightService,FightService>();
             //services.AddTransient -> which make service usable for all controller
             //services.AddSingleton -> which make service to be used only once
             

@@ -12,3 +12,10 @@ dotnet ef migrations add InitialCreate  --> table structure in CS file - step 1
 dotnet ef database update  --> create db and tables in sql server after creating migrations part
 
 -- this command is used db migrations to application
+
+
+------------------------
+
+dotnet run --> to run application
+
+dotnet watch run --> dynamically change or update application behaviour

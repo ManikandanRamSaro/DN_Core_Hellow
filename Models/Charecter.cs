@@ -18,5 +18,8 @@ namespace HellowWorld.Models
         public User Users {get;set;}
         public Weapon Weapons { get; set; }
         public List<CharecterSkill> CharecterSkills { get; set; }
+        public int Fights { get; set; }
+        public int Defeats { get; set; }
+        public int Vectories { get; set; }
     }
 }

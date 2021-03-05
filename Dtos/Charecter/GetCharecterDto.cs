@@ -18,5 +18,8 @@ namespace HellowWorld.Dtos.Charecter
         public RpgClass Class {get;set;}= RpgClass.Knight; 
         public GetWeaponDto Weapons { get; set; }
         public List<GetSkillDto> Skills { get; set; }
+        public int Fights { get; set; }
+        public int Defeats { get; set; }
+        public int Vectories { get; set; }
     }
 }
