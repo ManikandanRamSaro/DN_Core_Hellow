@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+using HellowWorld.Dtos.Fight;
 using HellowWorld.Services.FightService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +16,11 @@ namespace HellowWorld.Controllers
         public FightController(IFightService fightService)
         {
             _fightService = fightService;
+        }
+
+        [HttpPost("Weapon")]
+        public async Task<IActionResult> WeaponAttack(WeaponAttachDto request){
+            return Ok(await _fightService.WeaponAttack(request));
         }
     }
 }
