@@ -7,5 +7,6 @@ namespace HellowWorld.Services.FightService
     public interface IFightService
     {
          Task<ServiceResponse<AttackResultDto>> WeaponAttack(WeaponAttachDto request);
+         Task<ServiceResponse<AttackResultDto>> SkillAttack(SkillAttackDto request);
     }
 }

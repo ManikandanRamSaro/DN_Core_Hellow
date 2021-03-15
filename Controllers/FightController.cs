@@ -22,5 +22,10 @@ namespace HellowWorld.Controllers
         public async Task<IActionResult> WeaponAttack(WeaponAttachDto request){
             return Ok(await _fightService.WeaponAttack(request));
         }
+        
+        [HttpPost("Skill")]
+        public async Task<IActionResult> SkillAttack(SkillAttackDto request){
+            return Ok(await _fightService.SkillAttack(request));
+        }
     }
 }
